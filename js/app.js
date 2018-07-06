@@ -35,6 +35,18 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 // Hero class
+class Hero  {
+    constructor(x, y, sprite) {
+        this.x = x
+        this.y = y
+        this.sprite = sprite
+    }
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
+player = new Hero(0,0,'images/char-boy.png')
     // Constructor
         // Properties
             // x pos
