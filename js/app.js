@@ -34,19 +34,22 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-// Hero class
+// Player controlled character
 class Hero  {
-    constructor(x, y, sprite) {
-        this.x = x
-        this.y = y
-        this.sprite = sprite
+    constructor() {
+        this.x = 0;
+        this.y = 0;
+        this.sprite = 'images/char-boy.png';
     }
+
+    // Draw hero sprite on current x and y coord position
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
 
-player = new Hero(0,0,'images/char-boy.png')
+const player = new Hero();
+
     // Constructor
         // Properties
             // x pos
@@ -59,7 +62,6 @@ player = new Hero(0,0,'images/char-boy.png')
                 // Check win here?
                     // Did player x and y reach final tile?
             // Render 
-                // Draw player sprite on current x and y coord position
             // Handle keyboard input
                   // Update player's x and y property according to input
             // Reset Hero
