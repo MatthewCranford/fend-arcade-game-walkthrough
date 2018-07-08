@@ -37,35 +37,66 @@ Enemy.prototype.render = function() {
 // Player controlled character
 class Hero  {
     constructor() {
-        this.x = 0;
-        this.y = 0;
         this.sprite = 'images/char-boy.png';
+        this.step = 101;
+        this.jump = 83;
+        this.startX = this.step * 2;
+        this.startY = (this.jump * 5) - 20;
+        this.x = this.startX;
+        this.y = this.startY;
     }
+
+
+
+
+    // Update position
+        // Check collision here
+            // Did player x and y collide with enemy?
+        // Check win here?
+            // Did player x and y reach final tile?
+      
 
     // Draw hero sprite on current x and y coord position
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+
+    /**
+     * Update hero's x and y property according to input
+     * 
+     * @param  {string} input - Direction to travel
+     */
+    handleInput(input) {
+        switch(input) {
+            case 'left':
+                this.x -= this.step;
+                break;
+            case 'up':
+                this.y -= this.jump;
+                break;
+            case 'right':
+                this.x += this.step;
+                break;
+            case 'down':
+                this.y += this.jump;
+                break;
+        }
+    }
+                  
+    // Reset hero
+        // Set x and y to starting x and y
 }
 
-const player = new Hero();
 
-    // Constructor
-        // Properties
-            // x pos
-            // y pos
-            // Sprite image
-        // Methods
-            // Update position
-                // Check collision here
-                    // Did player x and y collide with enemy?
-                // Check win here?
-                    // Did player x and y reach final tile?
-            // Render 
-            // Handle keyboard input
-                  // Update player's x and y property according to input
-            // Reset Hero
-                // Set x and y to starting x and y
+
+
+
+    
+
+
+
+ 
+        
 
 
               
@@ -76,6 +107,7 @@ const player = new Hero();
 // Place the player object in a variable called player
 
 // New Hero object
+const player = new Hero();
 
 // Init allEnemies array 
 // For each enemy create and push new Enemy object into above array
