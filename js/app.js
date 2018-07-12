@@ -1,11 +1,11 @@
 // Enemies our player must avoid
-var Enemy = function() {
-    this.startX = 0;
-    this.x = this.startX;
-    this.y = 0;
-    this.sprite = 'images/enemy-bug.png';
+var Enemy = function(x,y) {
     this.step = 101;
+    this.x = x;
+    this.y = y + 55;
+    this.sprite = 'images/enemy-bug.png';
     this.boundary =  this.step * 5
+    this.startX = -this.step;
 };
 
 // Update the enemy's position, required method for game
@@ -23,7 +23,7 @@ Enemy.prototype.update = function(dt) {
     }
     else {
         // Reset pos to start
-        this.x = this.startX;    
+        this.x = this.startX;  
     }
         
 };
@@ -118,9 +118,12 @@ class Hero  {
 // Place the player object in a variable called player
 
 const player = new Hero();
-const bug1 = new Enemy();
+const bug1 = new Enemy(-101, 0);     
+const bug2 = new Enemy(-101, 83);
+const bug3 = new Enemy((-101*2.5), 83);
 const allEnemies = [];
-allEnemies.push(bug1);
+allEnemies.push(bug1,bug2,bug3);
+console.log(allEnemies);
 
 
 
