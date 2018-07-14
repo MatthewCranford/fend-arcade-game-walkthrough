@@ -44,16 +44,33 @@ class Hero  {
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        this.startY = (this.jump * 5) - 20;
+        this.startY = (this.jump * 4) + 55;
         this.x = this.startX;
         this.y = this.startY;
     }
 
     // Update position
+    update() {
+
         // Check collision here
+        for(let enemy of allEnemies) {
+           
             // Did player x and y collide with enemy?
+            if (this.y === enemy.y) {
+                console.log('Same row!');
+            }   
+            console.log(this.y, enemy.y)
+        }
+           
         // Check win here?
             // Did player x and y reach final tile?
+    }
+
+            // if (enemy.y === this.y && (enemy.x + this.step/2 > this.x && enemy.x < this.x + this.step/2)) {
+        //     alert('Collision!', enemy.y, this.y);
+        // }
+
+        
       
 
     // Draw hero sprite on current x and y coord position
