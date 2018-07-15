@@ -56,12 +56,12 @@ class Hero  {
         for(let enemy of allEnemies) {
            
             // Did player x and y collide with enemy?
-            if (this.y === enemy.y) {
-                console.log('Same row!');
+            if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2) ) {
+                alert('Collide!');
             }   
-            console.log(this.y, enemy.y)
         }
-           
+    
+     
         // Check win here?
             // Did player x and y reach final tile?
     }
