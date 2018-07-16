@@ -47,6 +47,7 @@ class Hero  {
         this.startY = (this.jump * 4) + 55;
         this.x = this.startX;
         this.y = this.startY;
+        this.victory = false;
     }
 
     // Update position
@@ -57,21 +58,16 @@ class Hero  {
            
             // Did player x and y collide with enemy?
             if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2) ) {
-                alert('Collide!');
+                this.reset();
             }   
         }
     
-     
-        // Check win here?
-            // Did player x and y reach final tile?
+         // Did player x and y reach final tile?
+        if(this.y === 55) {
+            this.victory = true;
+        }
+           
     }
-
-            // if (enemy.y === this.y && (enemy.x + this.step/2 > this.x && enemy.x < this.x + this.step/2)) {
-        //     alert('Collision!', enemy.y, this.y);
-        // }
-
-        
-      
 
     // Draw hero sprite on current x and y coord position
     render() {
@@ -109,7 +105,12 @@ class Hero  {
     }
                   
     // Reset hero
+    reset() {
         // Set x and y to starting x and y
+        this.y = this.startY;
+        this.X = this.startX;
+    }
+        
 }   
 
 // Now instantiate your objects.

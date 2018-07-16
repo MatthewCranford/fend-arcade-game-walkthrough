@@ -56,6 +56,10 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
         win.requestAnimationFrame(main);
+
+        if (player.victory === true) {
+            console.log('Game Over')
+        }
     }
 
     /* This function does some initial setup that should only occur once,
@@ -162,6 +166,7 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        console.log('Game over!')
     }
 
     /* Go ahead and load all of the images we know we're going to need to
